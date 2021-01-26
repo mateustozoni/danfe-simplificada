@@ -271,6 +271,7 @@ function observacoes (nfe) {
  * Retorna o template html do Danfe preenchido com os dados em <data> especificado.
  * Retorna vazio se não gerado.
  * @param      {object}  data
+ * @param      {string}  logo
  * @return     {string}
  */
 function renderHtml (data, logo = "") {
@@ -355,6 +356,7 @@ function getTemplateData (nfe) {
  * Retorna modelo Danfe de acordo com objeto <nfe> especificado.
  *
  * @param      {<type>}  nfe     djf-nfe
+ * @param      {string}  logo
  * @return     {Object}  { description_of_the_return_value }
  */
 function model (nfe, logo = "") {
@@ -380,6 +382,7 @@ module.exports.fromNFe = function (nfe, logo = "") {
  * Retorna modelo Danfe de acordo com <xml> especificado.
  *
  * @param      {string}  xml
+ * @param      {string}  logo
  * @return     {<object>}
  */
 module.exports.fromXML = function (xml, logo = "") {
@@ -393,9 +396,10 @@ module.exports.fromXML = function (xml, logo = "") {
  * Retorna modelo Danfe de acordo com <filePath> especificado.
  *
  * @param      {string}  filePath
+ * @param      {string}  logo
  * @return     {<object>}
  */
-module.exports.fromFile = function (filePath) {
+module.exports.fromFile = function (filePath, logo = "") {
   var content = ''
 
   if (!filePath || typeof filePath !== 'string') {
@@ -408,5 +412,5 @@ module.exports.fromFile = function (filePath) {
     throw new Error('File not found: ' + filePath + ' => ' + err.message)
   }
 
-  return module.exports.fromXML(content)
+  return module.exports.fromXML(content, logo)
 }
