@@ -1,0 +1,36 @@
+{
+  "name": "danfe-simplificada",
+  "version": "1.0.0",
+  "description": "Visualizador DANFE em html",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nodeunit test/"
+  },
+  "keywords": [
+    "DANFE",
+    "NFe",
+    "XML",
+    "parser",
+    "fluent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusjose/danfe-simplificada.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mateusjose/danfe-simplificada/issues"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.11.2"
+  },
+  "author": "Djalma Oliveira",
+  "license": "MIT",
+  "dependencies": {
+    "djf-nfe": "^1.0.1",
+    "handlebars": "^4.0.11"
+  },
+  "homepage": "https://github.com/mateusjose/danfe-simplificada#readme",
+  "directories": {
+    "test": "test"
+  }
+}
