@@ -1,5 +1,5 @@
-# djf-danfe
-Visualizador de DANFE (Documento Auxiliar Da Nota Fiscal Eletrônica) em html.
+# danfe-simplificada
+Visualizador de DANFE Simplificada (Documento Auxiliar Da Nota Fiscal Eletrônica) em html.
 
 ## Preparação
 
