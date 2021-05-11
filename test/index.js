@@ -9,7 +9,7 @@ function fixture () {
 module.exports.from = function (test) {
   var danfe = null
   var html = null
-  var expectedNumero = '<div>Nº 100</div>'
+  var expectedNumero = 'Nº NFe: 100'
 
   // fromXML
   danfe = Danfe.fromXML(fixture())
@@ -52,4 +52,42 @@ module.exports.invalidFrom = function (test) {
   }
 
   test.done()
+}
+
+module.exports.customTemplate = function (test) {
+	var expectedDefault = 'Nº NFe: 100'
+	var expectedNumber = '<span>Nº: 100</span>'
+	var expectedTitle = '<title>CUSTOM TEMPLATE</title>'
+
+	var custom = __dirname + '/custom-template-test.hbs'
+	var wrongCustom = __dirname + '/custom-template.hbs'
+
+	var danfe = Danfe.fromXML(fixture())
+	var html = danfe.toHtml(custom)
+
+	// Deve conter o número da NF diferente do número do template default
+	test.ok(html.indexOf(expectedNumber) !== -1)
+	// Deve conter também o título com 'CUSTOM TEMPLATE'
+	test.ok(html.indexOf(expectedTitle) !== -1)
+
+	/**
+	 * Enviando um arquivo inexistente, deve retornar o template padrão
+	 */
+	html = danfe.toHtml(wrongCustom)
+	test.ok(
+		html.indexOf(expectedDefault) !== -1,
+		'Se enviar um caminho que não existe, deve retornar o template padrão'
+	)
+
+	/**
+	 * Testando se mesmo depois de ter criado uma NF com o template customizado,
+	 * ainda é capaz de criar outro com o template padrão.
+	 */
+	html = danfe.toHtml()
+	test.ok(
+		html.indexOf(expectedDefault) !== -1,
+		'Se não enviar template customizado, deve retornar o padrão'
+	)
+
+	test.done()
 }

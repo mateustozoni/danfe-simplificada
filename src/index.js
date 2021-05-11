@@ -274,11 +274,20 @@ function observacoes (nfe) {
  * @param      {string}  logo
  * @return     {string}
  */
-function renderHtml (data, logo = "") {
+function renderHtml (data, logo = "", customTemplate) {
   if (!data) {
     return ''
   }
-  var template = fs.readFileSync(TEMPLATE_DANFE, 'utf8')
+
+	var pathToTemplate =
+		customTemplate &&
+		customTemplate.includes('.hbs') &&
+		fs.existsSync(customTemplate)
+			? customTemplate
+			: TEMPLATE_DANFE
+
+	var template = fs.readFileSync(pathToTemplate, 'utf8')
+
   return handlebars.compile(template)({...data, emitente: {...data.emitente, logo}})
 }
 
@@ -360,9 +369,14 @@ function getTemplateData (nfe) {
  * @return     {Object}  { description_of_the_return_value }
  */
 function model (nfe, logo = "") {
-  return {
-    toHtml: () => renderHtml(getTemplateData(nfe), logo)
-  }
+	return {
+		/**
+		 * @param   {string}  customTemplate   Caminho para um template de NF customizado em .hbs (handlebars)
+		 * @returns {string}                   Retorna um html em string
+		 */
+		toHtml: (customTemplate = null) =>
+			renderHtml(getTemplateData(nfe), logo, customTemplate)
+	}
 }
 
 /**
