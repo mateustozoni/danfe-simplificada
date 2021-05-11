@@ -15,14 +15,14 @@ npm install https://github.com/mateusjose/danfe-simplificada
 
 ### Exemplos
 
-Utilzando template padrão
+Utilizando template padrão
 ```
 const Danfe = require('danfe-simplificada')
 var danfe = Danfe.fromXML('conteudo XML', 'url logo')
 console.log(danfe.toHtml())
 ```
 ----------------------------------------------------------------------
-Utilzando template customizado
+Utilizando template customizado
 ```
 const Danfe = require('danfe-simplificada')
 var danfe = Danfe.fromXML('conteudo XML', 'url logo')
