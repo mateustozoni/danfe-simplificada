@@ -9,8 +9,14 @@ NodeJS 8.x
 
 ### Instalação
 
+NPM
 ```
-npm install https://github.com/mateusjose/danfe-simplificada
+npm i danfe-simplificada
+```
+---------------------------------------------------------------------
+Yarn
+```
+yarn add danfe-simplificada
 ```
 
 ### Exemplos
