@@ -15,10 +15,18 @@ npm install https://github.com/mateusjose/danfe-simplificada
 
 ### Exemplos
 
+Utilzando template padrão
 ```
 const Danfe = require('danfe-simplificada')
 var danfe = Danfe.fromXML('conteudo XML', 'url logo')
 console.log(danfe.toHtml())
+```
+----------------------------------------------------------------------
+Utilzando template customizado
+```
+const Danfe = require('danfe-simplificada')
+var danfe = Danfe.fromXML('conteudo XML', 'url logo')
+console.log(danfe.toHtml('caminho-template.hbs'))
 ```
 
 
@@ -47,3 +55,7 @@ npm run test
 ## Licença
 
 [MIT](https://github.com/mateusjose/danfe-simplificada/blob/master/LICENSE)
+
+## Colaboradores
+[Mateus Tozoni](https://github.com/mateustozoni)
+[Lucas Lacroix](https://github.com/lucaslacroix)
